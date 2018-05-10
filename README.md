@@ -1,0 +1,1 @@
+# .NET Core implementation of feature toggles - https://martinfowler.com/articles/feature-toggles.html
