@@ -4,9 +4,9 @@ namespace FeatureTogglesExample.Infrastructure
 {
     public static class FeatureExtensions
     {
-        public static void AddFeatureToggles(this IServiceCollection service)
+        public static void AddFeatureDecisions(this IServiceCollection service)
         {
-            service.AddSingleton(typeof(IFeatureToggle), typeof(FeatureToggle));
+            service.AddSingleton(typeof(IFeatureDecisions), typeof(FeatureDecisions));
         }
     }
 }

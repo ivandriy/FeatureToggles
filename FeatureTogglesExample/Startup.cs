@@ -18,8 +18,8 @@ namespace FeatureTogglesExample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IFeatureConfigProvider, ConfigProvider>();
-            services.AddFeatureToggles();
+            services.AddSingleton<IFeatureProvider, FeatureProvider>();
+            services.AddFeatureDecisions();
             services.AddMvc();
 
         }

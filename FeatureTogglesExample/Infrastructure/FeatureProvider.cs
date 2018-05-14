@@ -1,15 +1,17 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace FeatureTogglesExample.Infrastructure
 {
-    public class ConfigProvider:IFeatureConfigProvider
+    public class FeatureProvider:IFeatureProvider
     {
         private readonly IConfiguration _configuration;
-
-        public ConfigProvider(IConfiguration configuration)
+        
+        public FeatureProvider(IConfiguration configuration)
         {
             _configuration = configuration;
         }
+
         public string this[string key]
         {
             get

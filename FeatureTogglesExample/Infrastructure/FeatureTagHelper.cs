@@ -4,18 +4,20 @@ namespace FeatureTogglesExample.Infrastructure
 {
     public class FeatureTagHelper:TagHelper
     {
-        private readonly IFeatureToggle _feature;
+        private readonly IFeatureDecisions _decisions;
+
         [HtmlAttributeName("name")]
         public string Name { get; set; }
-        public FeatureTagHelper(IFeatureToggle feature)
+
+        public FeatureTagHelper(IFeatureDecisions decisions)
         {
-            _feature = feature;
+            _decisions = decisions;
         }
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagMode = TagMode.StartTagAndEndTag;
             output.TagName = "DIV";
-            if (!_feature.IsFeatureEnabled(Name))
+            if (!_decisions.IsFeatureEnabled(Name))
             {
                 output.SuppressOutput();
             }

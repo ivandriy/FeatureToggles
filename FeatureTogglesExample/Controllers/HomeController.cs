@@ -11,15 +11,15 @@ namespace FeatureTogglesExample.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IFeatureToggle _feature;
+        private readonly IFeatureDecisions _decisions;
 
-        public HomeController(IFeatureToggle feature)
+        public HomeController(IFeatureDecisions decisions)
         {
-            _feature = feature;
+            _decisions = decisions;
         }
         public IActionResult Index()
         {
-            if (_feature.IsFeatureEnabled("Welcome"))
+            if (_decisions.IsFeatureEnabled("Welcome"))
             {
                 ViewData["Message"] = "Welcome to feature toggle";
             }
